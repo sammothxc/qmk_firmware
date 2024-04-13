@@ -18,23 +18,32 @@ Features:
 
 ## Do-It-Yourself
 
-Making your own QMK firmware:
-* Start making your own layout with [Keyboard Layout Editor](http://www.keyboard-layout-editor.com/)
-* Then *copy the raw data* * and paste it into [Keyboard Firmware Builder](https://kbfirmware.com/), and map the matrix and MCU pins
-* Since the firmware builder uses outdated QMK firmware, you will need to just hit "Save configuration" and then run qmk import-kbfirmware /path/to/export.json and qmk will generate the necessary files for you to use in the QMK firmware
-* Build with qmk compile -kb <your-keyboard> -km default
-* Flash with qmk flash -kb <your-keyboard> -km default
-* Test keyboard with [QMK Configurator Tool](https://config.qmk.fm/#/test)
+Steps to making your own QMK firmware:
+1. Start by designing your own layout with [Keyboard Layout Editor](http://www.keyboard-layout-editor.com/)
+2. Then *copy the raw data* * and paste it into [Keyboard Firmware Builder](https://kbfirmware.com/), and map the matrix and MCU pins
+3. Since the firmware builder uses outdated QMK firmware, you will need to just hit "Save configuration" and then run `qmk import-kbfirmware /path/to/export.json` and QMK will generate the necessary files for you to use in the QMK firmware
+4. Build with `qmk compile -kb <your-keyboard> -km default`
+5. Flash with `qmk flash -kb <your-keyboard> -km default`
+6. Test keyboard with [QMK Configurator Tool](https://config.qmk.fm/#/test)
 
 *The input for the firmware builder is very very picky, so make sure it follows this format:
 
 ```
-["ESC","1","2","3","4","5","6","7","8","9","0","MINUS","EQUAL","BSPACE"],
-["TAB","Q","W","E","R","T","Y","U","I","O","P","LBRACKET","RBRACKET","BSLASH"],
-["CAPS","A","S","D","F","G","H","J","K","L","SEMICOLON","QUOTE","ENTER"],
-["LSHIFT","Z","X","C","V","B","N","M","COMMA","DOT","SLASH","RSHIFT"],
-["LCTRL","LGUI","LALT","SPACE","RALT","RGUI","APP","RCTRL"]
+["Esc","!\n1","@\n2","#\n3","$\n4","%\n5","^\n6","&\n7","*\n8","(\n9",")\n0","_\n-","+\n=",{w:2},"Backspace","Cal"],
+[{w:1.5},"Tab","Q","W","E","R","T","Y","U","I","O","P","{\n[","}\n]",{w:1.5},"|\n\\","`\n~"],
+[{w:1.75},"Caps Lock","A","S","D","F","G","H","J","K","L",":\n;","\"\n'",{w:2.25},"Enter","Menu"],
+[{w:2.25},"Shift","Z","X","C","V","B","N","M","<\n,",">\n.","?\n/",{w:1.75},"Shift","Up","Fn"],
+[{w:1.25},"Ctrl",{w:1.25},"Win",{w:1.25},"Alt",{w:7.25},"","Fn","Ctrl","Left","Down","Right"]
 ```
+This is a bad example that KLE outputs by default and won't work out of the box with KFB:
+```
+[{p:"R1"},"Esc",{p:""},"!\n1","@\n2","#\n3","$\n4","%\n5","^\n6","&\n7","*\n8","(\n9",")\n0","_\n-","+\n=",{w:2},"Backspace","Cal"],
+[{p:"R2",w:1.5},"Tab",{p:""},"Q","W","E","R","T","Y","U","I","O","P","{\n[","}\n]",{w:1.5},"|\n\\","`\n~"],
+[{p:"R3",w:1.75},"Caps Lock",{p:""},"A","S","D","F","G","H","J","K","L",":\n;","\"\n'",{w:2.25},"Enter","Menu"],
+[{p:"R4",w:2.25},"Shift",{p:""},"Z","X","C","V","B","N","M","<\n,",">\n.","?\n/",{w:1.75},"Shift","Up","Fn"],
+[{p:"SPACE",w:1.25},"Ctrl",{p:"",w:1.25},"Win",{w:1.25},"Alt",{a:7,w:7.25},"",{a:4},"Fn","Ctrl","Left","Down","Right"]
+```
+Delete any extra stuff (most likely a and p flags) other than the necessary {w:#} flags
 
 ## Building this firmware
 
