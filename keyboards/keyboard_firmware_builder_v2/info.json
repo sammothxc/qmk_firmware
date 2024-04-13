@@ -1,6 +1,6 @@
 {
     "manufacturer": "sammothxc",
-    "keyboard_name": "keyboard_firmware_builder_v2",
+    "keyboard_name": "sammothxc-67key",
     "maintainer": "sammothxc",
     "bootloader": "atmel-dfu",
     "diode_direction": "COL2ROW",
