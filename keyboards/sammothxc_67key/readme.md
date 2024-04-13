@@ -26,7 +26,7 @@ Steps to making your own QMK firmware:
 5. Flash with `qmk flash -kb <your-keyboard> -km default`
 6. Test keyboard with [QMK Configurator Tool](https://config.qmk.fm/#/test)
 
-*The input for the firmware builder is very very picky, so make sure it follows this format:
+*The input for KFB is very very picky, so make sure it follows this format:
 
 ```
 ["Esc","!\n1","@\n2","#\n3","$\n4","%\n5","^\n6","&\n7","*\n8","(\n9",")\n0","_\n-","+\n=",{w:2},"Backspace","Cal"],
