@@ -21,7 +21,7 @@ Features:
 Steps to making your own QMK firmware:
 1. Start by designing your own layout with [Keyboard Layout Editor](http://www.keyboard-layout-editor.com/)
 2. Then *copy the raw data* * and paste it into [Keyboard Firmware Builder](https://kbfirmware.com/), and map the matrix and MCU pins
-3. Since the firmware builder uses outdated QMK firmware, you will need to just hit "Save configuration" and then run `qmk import-kbfirmware /path/to/export.json` and QMK will generate the necessary files for you to use in the QMK firmware
+3. Since the firmware builder uses outdated QMK firmware, you will need to just hit "Save configuration" and then run `qmk import-kbfirmware /path/to/export.json` and QMK will generate the *necessary files*** (I know, more fine print) for you to use in the QMK firmware
 4. Build with `qmk compile -kb <your-keyboard> -km default`
 5. Flash with `qmk flash -kb <your-keyboard> -km default`
 6. Test keyboard with [QMK Configurator Tool](https://config.qmk.fm/#/test)
@@ -44,6 +44,8 @@ This is a bad example that KLE outputs by default and won't work out of the box 
 [{p:"SPACE",w:1.25},"Ctrl",{p:"",w:1.25},"Win",{w:1.25},"Alt",{a:7,w:7.25},"",{a:4},"Fn","Ctrl","Left","Down","Right"]
 ```
 Delete any extra stuff (most likely a and p flags) other than the necessary {w:#} flags
+
+** The `qmk import-kbfirmware` utility absolutely sucks and will sometimes mess up a few keys in the layout as well as screwing up pin assignments. Save yourself hours of headbanging and double check these two things if it isn't working as expected.
 
 ## Building this firmware
 
