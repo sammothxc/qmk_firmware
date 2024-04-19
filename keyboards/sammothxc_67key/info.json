@@ -2,6 +2,7 @@
     "manufacturer": "sammothxc",
     "keyboard_name": "sammothxc_67key",
     "maintainer": "sammothxc",
+    "url": "https://github.com/sammothxc/qmk_firmware",
     "bootloader": "atmel-dfu",
     "diode_direction": "COL2ROW",
     "features": {
@@ -10,11 +11,20 @@
         "console": false,
         "extrakey": true,
         "mousekey": true,
-        "nkro": true
+        "nkro": true,
+        "encoder": true
     },
     "matrix_pins": {
         "cols": ["E6", "B4", "B5", "B7", "D5", "C7", "F1", "F0", "B6", "B0"],
         "rows": ["B3", "F7", "B1", "B2", "F5", "F6", "F4"]
+    },
+    "encoder": {
+        "rotary_l": [
+            {"pin_a": "C6", "pin_b": "D4"}
+        ],
+        "rotary_r": [
+            {"pin_a": "D2", "pin_b": "D3"}
+        ]
     },
     "processor": "atmega32u4",
     "usb": {
