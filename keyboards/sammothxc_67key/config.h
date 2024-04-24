@@ -20,6 +20,6 @@
 //#define NO_ACTION_ONESHOT
 #define ENCODERS_PAD_A { C6, D2 }
 #define ENCODERS_PAD_B { D4, D3 }
-
+#define DIP_SWITCH_PINS { D7, D1 }
 // L_ENCODER SW=D7: l1=KC_MPLY, l2=KC_MUTE
 // R_ENCODER SW=D1: l1=none, l2=none

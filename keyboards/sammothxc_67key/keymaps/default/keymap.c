@@ -17,7 +17,7 @@ bool dip_switch_update_user(uint8_t index, bool active) {
     switch (index) {
         case 0: {
             if (active) {
-                tap_code(KC_A);
+                tap_code(KC_MPLY);
             } else {
 
             }
